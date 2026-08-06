@@ -7,3 +7,5 @@ export type PostType = {
     "body": string,
     "date": string
 }
+
+export type NewPostType = Omit<PostType, "_id">;
