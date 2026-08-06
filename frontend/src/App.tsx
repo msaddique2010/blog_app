@@ -5,10 +5,8 @@ import PostDetails from "./pages/PostDetails";
 import NewPost from "./pages/NewPost";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-
 import NavBar from "./components/Navbar";
 
-// , , , , , 
 function App() {
 
     return (
