@@ -23,15 +23,18 @@ export default function PostDetails() {
         getPostDetails();
     },[id]);
 
-    if (loading) return <p>loading...</p>;
-    if (error) return <p>{error}</p>;
-    if (!post) return <p>Post not found.</p>;
+    if (loading) return <div className="status-message">Loading...</div>;
+    if (error) return <div className="status-message error-message">{String(error)}</div>;
+    if (!post) return <div className="status-message">Post not found.</div>;
 
     return(
-        <div>
-            {post.title}
-            <br />
-            <button className="border cursor-pointer" onClick={() => navigate(-1)}>Back</button>
+        <div className="page-container">
+            <h1 className="page-title">{post.title}</h1>
+            <div className="post-meta">
+                <span>By {post.author}</span> · <span>{post.date}</span> · <span className="post-tag">{post.tag}</span>
+            </div>
+            <p style={{ margin: '1.5rem 0', color: 'var(--text-primary)', whiteSpace: 'pre-wrap' }}>{post.body}</p>
+            <button className="btn" onClick={() => navigate(-1)}>Back</button>
         </div>
     );
 }

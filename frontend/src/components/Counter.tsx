@@ -5,9 +5,9 @@ export default function Counter() {
     
     return (
         
-        <div>
-            <h1 className="text-xl font-bold">{count}</h1>
-            <button onClick={() => {setCount(count + 1)}} className="border">Add 1</button>
+        <div className="counter-box">
+            <h1 className="counter-value">{count}</h1>
+            <button onClick={() => {setCount(count + 1)}}>Add 1</button>
         </div>
     )
 }

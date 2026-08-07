@@ -8,4 +8,10 @@ export type PostType = {
     "date": string
 }
 
-export type NewPostType = Omit<PostType, "_id">;
+export type NewPostType = {
+    "title": string,
+    "author": string,
+    "tag": string,
+    "summary": string,
+    "body": string,
+};

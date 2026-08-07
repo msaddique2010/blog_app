@@ -20,18 +20,18 @@ export default function Posts() {
         fetchPosts();
     },[refresh]);
     
-    if (loading) return <p>loading...</p>;
-    if (error) return <p>{error}</p>;
-    if (!posts) return <p>Posts not found.</p>;
+    if (loading) return <div className="status-message">Loading...</div>;
+    if (error) return <div className="status-message error-message">{String(error)}</div>;
+    if (!posts) return <div className="status-message">Posts not found.</div>;
 
     return (
-        <>
-            <div>Posts</div>
-            <button className="border" onClick={() => setRefresh(refresh + 1)}>Refresh</button>
+        <div className="page-container">
+            <h1 className="page-title">Posts</h1>
+            <button style={{ marginBottom: '1.5rem' }} onClick={() => setRefresh(refresh + 1)}>Refresh</button>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+            <div className="posts-grid">
                 {posts.map((post) => <PostCard key={post._id} post={post} />)}
             </div>
-        </>
+        </div>
     )
 }
