@@ -50,7 +50,13 @@ server.get("/api/posts/:id", async(req: Request, res: Response) => {
 // @route   api/posts/
 server.post("/api/posts", async(req: Request, res: Response) => {
     try {
-        const posts = await Post.create(req.body);
+        const posts = await Post.create({
+            title: req.body.title,            
+            author: req.body.author,
+            tag: req.body.tag,
+            summary: req.body.summary,
+            body: req.body.body,            
+        });
         res.status(200).send(posts);
     } catch (error) {
         console.error(error);
