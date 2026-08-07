@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import { createNewPost } from "../api";
 
 export default function NewPost() {
     const [title, setTitle] = useState("");
@@ -14,7 +14,7 @@ export default function NewPost() {
         e.preventDefault();
         
         try {
-            await axios.post("http://localhost:3000/api/posts/", {
+            await createNewPost({
                 title,
                 author,
                 tag,

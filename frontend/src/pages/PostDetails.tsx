@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { getSinglePost } from "../api";
 import type { PostType } from "../Types";
 
 
@@ -10,14 +10,19 @@ export default function PostDetails() {
     const { id } = useParams();
     const [post, setPost] = useState<PostType>();
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState();
+    const [error, setError] = useState<unknown>();
 
     useEffect(() => {
+        if (!id) return;
         const getPostDetails = async() => {
-            await axios.get(`http://localhost:3000/api/posts/${id}`)
-            .then(res => setPost(res.data))
-            .catch((error) => setError(error))
-            .finally(() => setLoading(false))
+            try{
+                const data = await getSinglePost(id);
+                setPost(data);
+            } catch(err)    {
+                setError(err);
+            } finally{
+                setLoading(false)
+            }
         }
 
         getPostDetails();
