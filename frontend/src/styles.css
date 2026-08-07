@@ -74,7 +74,8 @@ body {
 }
 
 /* Buttons */
-button, .btn {
+button,
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -91,12 +92,14 @@ button, .btn {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
   background-color: #1d4ed8;
   transform: translateY(-1px);
 }
 
-button:active, .btn:active {
+button:active,
+.btn:active {
   transform: translateY(0);
 }
 
@@ -109,7 +112,9 @@ form {
   margin-top: 1rem;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
   font-size: 0.95rem;
   padding: 0.75rem 1rem;
@@ -121,7 +126,9 @@ input, textarea, select {
   width: 100%;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
